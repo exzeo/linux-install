@@ -19,6 +19,8 @@ curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh
 * Yarn
 * Fortigate VPN
 * Scripts
+* Postman
+* Prospect Mail
 
 
 ## Visual Studio Code Issues
