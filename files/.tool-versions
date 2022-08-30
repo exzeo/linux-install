@@ -1,0 +1,12 @@
+golang 1.19
+nodejs 16.9.1
+kubectl 1.21.1
+helm 3.8.1
+terraform 1.2.2
+packer 1.7.8
+kops v1.19.0
+awscli 2.4.7
+vault 1.9.2
+istioctl 1.11.2
+yarn 1.22.17
+kubectx 0.9.4
