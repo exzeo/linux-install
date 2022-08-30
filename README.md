@@ -17,9 +17,9 @@ curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh
 * Terraform
 * Vault
 * Yarn
+* Fortigate VPN
+* Scripts
 
-
-## Extra Manual Installs
 
 ## Visual Studio Code Issues
 Failed to find the "go" binary in either GOROOT()

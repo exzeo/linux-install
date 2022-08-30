@@ -36,3 +36,19 @@ if [ "${VSCODE_PATH}" == "" ]; then
   sudo apt update
   sudo apt install code
 fi
+
+# Fortigate VPN
+VPN_PATH=$(which /opt/forticlient/gui/FortiClient-linux-x64/FortiClient)
+if [ "${VPN_PATH}" == "" ]; then
+  echo "Installing VPN..."
+  curl -s -L -o /tmp/forticlient.deb https://links.fortinet.com/forticlient/deb/vpnagent
+  sudo dpkg -i /tmp/forticlient.deb
+fi
+
+# Common Scripts
+curl -s -o /usr/local/bin/git-clone.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-clone.sh
+curl -s -o /usr/local/bin/git-push.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-push.sh
+curl -s -o /usr/local/bin/git-tag.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-tag.sh
+sudo chmod +x /usr/local/bin/git-clone.sh
+sudo chmod +x /usr/local/bin/git-push.sh
+sudo chmod +x /usr/local/bin/git-tag.sh
