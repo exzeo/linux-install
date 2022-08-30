@@ -19,7 +19,7 @@ if [ ! -d "${HOME}/.asdf" ]; then
 fi
 
 # Get plugins
-wget -O - https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/install-asdf-plugins.sh | bash
+curl -L https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/install-asdf-plugins.sh | bash
 
 # Get tools versions
 curl -s -o ${HOME}/.tool-versions https://raw.githubusercontent.com/exzeo/linux-install/main/files/.tool-versions

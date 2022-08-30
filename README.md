@@ -1,7 +1,7 @@
 # Automated Installation
 
 ```
-wget -O - https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh | bash
+curl -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh | bash
 ```
 
 ## Tools installed
@@ -20,7 +20,6 @@ wget -O - https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh 
 
 
 ## Extra Manual Installs
-
 
 ## Visual Studio Code Issues
 Failed to find the "go" binary in either GOROOT()
