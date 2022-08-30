@@ -9,4 +9,3 @@ awscli 2.4.7
 vault 1.9.2
 istioctl 1.11.2
 yarn 1.22.17
-kubectx 0.9.4
