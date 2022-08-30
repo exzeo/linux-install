@@ -1,7 +1,7 @@
 # Automated Installation
 
 ```
-curl -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh | bash
+curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh | bash
 ```
 
 ## Tools installed
