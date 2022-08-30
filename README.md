@@ -1,7 +1,7 @@
 # Automated Installation
 
 ```
-wget -O - https://raw.githubusercontent.com/exzeo/linux-install/master/install.sh | bash
+wget -O - https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh | bash
 ```
 
 ## Tools installed
