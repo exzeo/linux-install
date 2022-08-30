@@ -18,6 +18,9 @@ if [ ! -d "${HOME}/.asdf" ]; then
     git clone https://github.com/asdf-vm/asdf.git ${HOME}/.asdf
 fi
 
+# Get plugins
+wget -O - https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/install-asdf-plugins.sh | bash
+
 # Get tools versions
 curl -s -o ${HOME}/.tool-versions https://raw.githubusercontent.com/exzeo/linux-install/main/files/.tool-versions
 ${HOME}/.asdf/bin/asdf install
