@@ -45,6 +45,12 @@ if [ "${VPN_PATH}" == "" ]; then
   sudo dpkg -i /tmp/forticlient.deb
 fi
 
+# Postman
+snap install postman
+
+# Prospect Mail
+snap install prospect-mail
+
 # Common Scripts
 curl -s -o /usr/local/bin/git-clone.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-clone.sh
 curl -s -o /usr/local/bin/git-push.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-push.sh
