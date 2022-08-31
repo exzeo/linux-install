@@ -60,7 +60,7 @@ curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh
         alias kops="AWS_SDK_LOAD_CONFIG=1 kops $@"
         ```
 
-* Recommended Plugins 
+* Recommended VS Code Plugins 
     ```
     code --install-extension amazonwebservices.aws-toolkit-vscode --force
     code --install-extension aws-scripting-guy.cform --force
