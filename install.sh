@@ -14,7 +14,7 @@ sudo apt-get install -y git curl wget gpg apt-transport-https
 CHROME_PATH=$(which /opt/google/chrome/chrome)
 if [ "${CHROME_PATH}" == "" ]; then
   echo "Installing chrome..."
-  curl -s -o /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  curl -s -H 'Cache-Control: no-cache' -o /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
 fi
 
@@ -25,10 +25,10 @@ if [ ! -d "${HOME}/.asdf" ]; then
 fi
 
 # Get plugins
-curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/install-asdf-plugins.sh | bash
+curl -s -H 'Cache-Control: no-cache' -L https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/install-asdf-plugins.sh | bash
 
 # Get tools versions
-curl -s -o ${HOME}/.tool-versions https://raw.githubusercontent.com/exzeo/linux-install/main/files/.tool-versions
+curl -s -H 'Cache-Control: no-cache' -o ${HOME}/.tool-versions https://raw.githubusercontent.com/exzeo/linux-install/main/files/.tool-versions
 ${HOME}/.asdf/bin/asdf install
 
 # VS Code
@@ -47,7 +47,7 @@ fi
 VPN_PATH=$(which /opt/forticlient/gui/FortiClient-linux-x64/FortiClient)
 if [ "${VPN_PATH}" == "" ]; then
   echo "Installing VPN..."
-  curl -s -L -o /tmp/forticlient.deb https://links.fortinet.com/forticlient/deb/vpnagent
+  curl -s -L -H 'Cache-Control: no-cache' -o /tmp/forticlient.deb https://links.fortinet.com/forticlient/deb/vpnagent
   sudo dpkg -i /tmp/forticlient.deb
 fi
 
@@ -55,7 +55,7 @@ fi
 KCTX_PATH=$(which ${LOCAL_BIN}/kubectx)
 if [ "${KCTX_PATH}" == "" ]; then
   echo "Installing Kubectx..."
-  curl -s -L -o ${LOCAL_BIN}/kubectx https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx
+  curl -s -L -H 'Cache-Control: no-cache' -o ${LOCAL_BIN}/kubectx https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx
   sudo chmod +x ${LOCAL_BIN}/kubectx
 fi
 
@@ -63,7 +63,7 @@ fi
 KNS_PATH=$(which ${LOCAL_BIN}/kubens)
 if [ "${KNS_PATH}" == "" ]; then
   echo "Installing Kubens..."
-  curl -s -L -o ${LOCAL_BIN}/kubens https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens
+  curl -s -L -H 'Cache-Control: no-cache' -o ${LOCAL_BIN}/kubens https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens
   sudo chmod +x ${LOCAL_BIN}/kubens
 fi
 
@@ -82,9 +82,9 @@ if [ "${PROSPECT_MAIL_PATH}" == "" ]; then
 fi
 
 # Common Scripts
-curl -s -L -o ${LOCAL_BIN}/git-clone.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-clone.sh
-curl -s -L -o ${LOCAL_BIN}/git-push.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-push.sh
-curl -s -L -o ${LOCAL_BIN}/git-tag.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-tag.sh
+curl -s -L -H 'Cache-Control: no-cache' -o ${LOCAL_BIN}/git-clone.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-clone.sh
+curl -s -L -H 'Cache-Control: no-cache' -o ${LOCAL_BIN}/git-push.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-push.sh
+curl -s -L -H 'Cache-Control: no-cache' -o ${LOCAL_BIN}/git-tag.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-tag.sh
 sudo chmod +x ${LOCAL_BIN}/git-clone.sh
 sudo chmod +x ${LOCAL_BIN}/git-push.sh
 sudo chmod +x ${LOCAL_BIN}/git-tag.sh
