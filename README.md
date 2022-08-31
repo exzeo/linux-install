@@ -1,4 +1,4 @@
-# Automated Installation
+# Linux Laptop Installation
 
 ```
 curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh | bash
@@ -30,9 +30,23 @@ curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh
 
 ## Notes
 * How to get linux not to ask for password for sudo
-    ```
-    echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee "/etc/sudoers.d/$USER-no-sudo-password"
-    ```
+    * Run in Terminal
+        ```
+        echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee "/etc/sudoers.d/$USER-no-sudo-password"    
+        ```
+* Go not pulling private modules from bitbucket
+    * Add to ~/.bashrc
+        ```
+        export GOPRIVATE="bitbucket.org/exzeo-usa"
+        ```
+
+* ASDF Setup
+    * Add to ~/.bashrc
+        ```
+        ## ASDF
+        . $HOME/.asdf/asdf.sh
+        . $HOME/.asdf/completions/asdf.bash
+        ```
 
 ## Visual Studio
 * Failed to find the "go" binary in either GOROOT() in VS Code
@@ -66,3 +80,13 @@ curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh
     code --install-extension zxh404.vscode-proto3 --force
     code --install-extension redhat.vscode-yaml --force
     ```
+
+## Tips
+* Custom Docker Alias
+    * Add to ~/.bashrc
+        ```
+        # Docker Helpers
+        alias drm="docker ps --all --quiet | xargs -I '{}' docker rm --force {}"
+        alias drmi="docker images --all --quiet | xargs -I '{}' docker rmi --force {}"
+        alias drmv="docker volume ls --quiet | xargs -I '{}' docker volume rm --force {}"
+        ```    

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Local Folder
+LOCAL_BIN=$HOME/.local/bin
+if [ ! -d "${LOCAL_BIN}" ]; then
+  mkdir -p ${LOCAL_BIN}
+fi
+
 # Dependencies
 echo "Installing dependencies.."
 sudo apt-get install -y git curl wget gpg apt-transport-https
@@ -46,19 +52,19 @@ if [ "${VPN_PATH}" == "" ]; then
 fi
 
 # Kubectx
-KCTX_PATH=$(which /usr/local/bin/kubectx)
+KCTX_PATH=$(which ${LOCAL_BIN}/kubectx)
 if [ "${KCTX_PATH}" == "" ]; then
   echo "Installing Kubectx..."
-  sudo curl -s -L -o /usr/local/bin https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx
-  sudo chmod +x /usr/local/bin/kubectx
+  curl -s -L -o ${LOCAL_BIN}/kubectx https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx
+  sudo chmod +x ${LOCAL_BIN}/kubectx
 fi
 
 # Kubens
-KNS_PATH=$(which /usr/local/bin/kubens)
+KNS_PATH=$(which ${LOCAL_BIN}/kubens)
 if [ "${KNS_PATH}" == "" ]; then
   echo "Installing Kubens..."
-  sudo curl -s -L -o /usr/local/bin https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens
-  sudo chmod +x /usr/local/bin/kubens
+  curl -s -L -o ${LOCAL_BIN}/kubens https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens
+  sudo chmod +x ${LOCAL_BIN}/kubens
 fi
 
 # Postman
@@ -68,9 +74,9 @@ snap install postman
 snap install prospect-mail
 
 # Common Scripts
-sudo curl -s -L -o /usr/local/bin/git-clone.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-clone.sh
-sudo curl -s -L -o /usr/local/bin/git-push.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-push.sh
-sudo curl -s -L -o /usr/local/bin/git-tag.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-tag.sh
-sudo chmod +x /usr/local/bin/git-clone.sh
-sudo chmod +x /usr/local/bin/git-push.sh
-sudo chmod +x /usr/local/bin/git-tag.sh
+curl -s -L -o ${LOCAL_BIN}/git-clone.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-clone.sh
+curl -s -L -o ${LOCAL_BIN}/git-push.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-push.sh
+curl -s -L -o ${LOCAL_BIN}/git-tag.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-tag.sh
+sudo chmod +x ${LOCAL_BIN}/git-clone.sh
+sudo chmod +x ${LOCAL_BIN}/git-push.sh
+sudo chmod +x ${LOCAL_BIN}/git-tag.sh
