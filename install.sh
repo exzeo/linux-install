@@ -68,10 +68,18 @@ if [ "${KNS_PATH}" == "" ]; then
 fi
 
 # Postman
-snap install postman
+POSTMAN_PATH=$(which /snap/bin/postman)
+if [ "${POSTMAN_PATH}" == "" ]; then
+  echo "Installing Postman..."
+  snap install postman
+fi
 
 # Prospect Mail
-snap install prospect-mail
+PROSPECT_MAIL_PATH=$(which /snap/bin/prospect-mail)
+if [ "${PROSPECT_MAIL_PATH}" == "" ]; then
+  echo "Installing Prospect Mail..."
+  snap install prospect-mail
+fi
 
 # Common Scripts
 curl -s -L -o ${LOCAL_BIN}/git-clone.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-clone.sh
