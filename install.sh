@@ -45,6 +45,22 @@ if [ "${VPN_PATH}" == "" ]; then
   sudo dpkg -i /tmp/forticlient.deb
 fi
 
+# Kubectx
+KCTX_PATH=$(which /usr/local/bin/kubectx)
+if [ "${KCTX_PATH}" == "" ]; then
+  echo "Installing Kubectx..."
+  sudo curl -s -L -o /usr/local/bin https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx
+  sudo chmod +x /usr/local/bin/kubectx
+fi
+
+# Kubens
+KNS_PATH=$(which /usr/local/bin/kubens)
+if [ "${KNS_PATH}" == "" ]; then
+  echo "Installing Kubens..."
+  sudo curl -s -L -o /usr/local/bin https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens
+  sudo chmod +x /usr/local/bin/kubens
+fi
+
 # Postman
 snap install postman
 
@@ -52,9 +68,9 @@ snap install postman
 snap install prospect-mail
 
 # Common Scripts
-curl -s -o /usr/local/bin/git-clone.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-clone.sh
-curl -s -o /usr/local/bin/git-push.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-push.sh
-curl -s -o /usr/local/bin/git-tag.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-tag.sh
+sudo curl -s -L -o /usr/local/bin/git-clone.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-clone.sh
+sudo curl -s -L -o /usr/local/bin/git-push.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-push.sh
+sudo curl -s -L -o /usr/local/bin/git-tag.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-tag.sh
 sudo chmod +x /usr/local/bin/git-clone.sh
 sudo chmod +x /usr/local/bin/git-push.sh
 sudo chmod +x /usr/local/bin/git-tag.sh

@@ -21,6 +21,12 @@ curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh
 * Scripts
 * Postman
 * Prospect Mail
+* Kubectx
+* Kubens
+
+## Not installed
+* Studio 3T
+    * https://studio3t.com/knowledge-base/articles/how-to-install-studio-3t-on-linux/
 
 ## Notes
 * How to get linux not to ask for password for sudo
