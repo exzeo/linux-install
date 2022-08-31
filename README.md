@@ -54,6 +54,12 @@ curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh
         . $HOME/.asdf/completions/asdf.bash
         ```
 
+* KOPS unable to access S3 bucket
+    * Add to ~/.bashrc
+        ```
+        alias kops="AWS_SDK_LOAD_CONFIG=1 kops $@"
+        ```
+
 * Recommended Plugins 
     ```
     code --install-extension amazonwebservices.aws-toolkit-vscode --force
