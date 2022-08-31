@@ -54,15 +54,6 @@ curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh
         . $HOME/.asdf/completions/asdf.bash
         ```
 
-## Visual Studio
-* Failed to find the "go" binary in either GOROOT() in VS Code
-  *  Add to settings.json in VS Code (Open User Settings JSON)
-        ```
-        "go.alternateTools": {
-            "go": "/home/<name>/.asdf/shims/go"
-        }
-        ```
-
 * Recommended Plugins 
     ```
     code --install-extension amazonwebservices.aws-toolkit-vscode --force

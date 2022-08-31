@@ -90,4 +90,5 @@ sudo chmod +x ${LOCAL_BIN}/git-push.sh
 sudo chmod +x ${LOCAL_BIN}/git-tag.sh
 
 # Symbolic Links
-sudo ln -s ${HOME}/.asdf/shims/kubectl /usr/local/bin/kubectl
+sudo ln -s ${HOME}/.asdf/shims/kubectl /usr/local/bin/kubectl --force
+sudo ln -s ${HOME}/.asdf/shims/go /usr/local/bin/go --force
