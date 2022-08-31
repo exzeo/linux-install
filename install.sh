@@ -88,3 +88,6 @@ curl -s -L -H 'Cache-Control: no-cache' -o ${LOCAL_BIN}/git-tag.sh https://raw.g
 sudo chmod +x ${LOCAL_BIN}/git-clone.sh
 sudo chmod +x ${LOCAL_BIN}/git-push.sh
 sudo chmod +x ${LOCAL_BIN}/git-tag.sh
+
+# Symbolic Links
+sudo ln -s ${HOME}/.asdf/shims/kubectl /usr/local/bin/kubectl
