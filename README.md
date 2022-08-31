@@ -28,7 +28,14 @@ curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh
 * Studio 3T
     * https://studio3t.com/knowledge-base/articles/how-to-install-studio-3t-on-linux/
 
-## Notes
+## After install
+* Add .local/bin to Path
+    * Add to ~/.bashrc
+        ```
+        export LOCAL_BIN=$HOME/.local/bin
+        export PATH=$PATH:$LOCAL_BIN
+        ``` 
+
 * How to get linux not to ask for password for sudo
     * Run in Terminal
         ```
@@ -43,7 +50,6 @@ curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh
 * ASDF Setup
     * Add to ~/.bashrc
         ```
-        ## ASDF
         . $HOME/.asdf/asdf.sh
         . $HOME/.asdf/completions/asdf.bash
         ```
