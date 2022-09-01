@@ -8,7 +8,7 @@ fi
 
 # Dependencies
 echo "Installing dependencies.."
-sudo apt-get install -y git curl wget gpg apt-transport-https
+sudo apt-get install -y git curl wget gpg apt-transport-https uidmap
 
 # Chrome
 CHROME_PATH=$(which /opt/google/chrome/chrome)
@@ -87,6 +87,17 @@ if [ "${PROSPECT_MAIL_PATH}" == "" ]; then
   echo "Installing Prospect Mail..."
   sudo snap install prospect-mail
 fi
+
+# Docker
+DOCKER_PATH=$(which docker)
+if [ "${DOCKER_PATH}" == "" ]; then
+  echo "Installing docker..."
+  curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
+  sudo chmod +x /tmp/get-docker.sh
+  /tmp/get-docker.sh
+fi
+
+dockerd-rootless-setuptool.sh install
 
 # Common Scripts
 curl -s -L -H 'Cache-Control: no-cache' -o ${LOCAL_BIN}/git-clone.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-clone.sh

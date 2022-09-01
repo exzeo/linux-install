@@ -59,6 +59,12 @@ wget -O - https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh 
         ```
         alias kops="AWS_SDK_LOAD_CONFIG=1 kops $@"
         ```
+* Got permission denied while trying to connect to the Docker daemon socket at
+    * Add to ~/.bashrc
+        ```
+        export PATH=/usr/bin:$PATH
+        export DOCKER_HOST=unix:///run/user/1000/docker.sock
+        ```
 
 * Recommended VS Code Plugins 
     ```
