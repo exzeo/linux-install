@@ -8,7 +8,7 @@ fi
 
 # Dependencies
 echo "Installing dependencies.."
-sudo apt-get install -y git curl wget gpg apt-transport-https uidmap
+sudo apt-get install -y git curl wget gpg apt-transport-https uidmap unzip 
 
 # Chrome
 CHROME_PATH=$(which /opt/google/chrome/chrome)
