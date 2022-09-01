@@ -8,15 +8,7 @@ fi
 
 # Dependencies
 echo "Installing dependencies.."
-sudo apt-get install -y git curl wget gpg apt-transport-https uidmap unzip 
-
-# Chrome
-CHROME_PATH=$(which /opt/google/chrome/chrome)
-if [ "${CHROME_PATH}" == "" ]; then
-  echo "Installing chrome..."
-  curl -s -H 'Cache-Control: no-cache' -o /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
-fi
+sudo apt-get install -y git curl wget gpg apt-trangit stsport-https uidmap unzip 
 
 # ASDF
 if [ ! -d "${HOME}/.asdf" ]; then
@@ -27,6 +19,7 @@ if [ ! -d "${HOME}/.asdf" ]; then
   . $HOME/.asdf/completions/asdf.bash
 fi
 
+
 # Get plugins
 curl -s -H 'Cache-Control: no-cache' -L https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/install-asdf-plugins.sh | bash
 
@@ -34,16 +27,22 @@ curl -s -H 'Cache-Control: no-cache' -L https://raw.githubusercontent.com/exzeo/
 curl -s -H 'Cache-Control: no-cache' -o ${HOME}/.tool-versions https://raw.githubusercontent.com/exzeo/linux-install/main/files/.tool-versions
 ${HOME}/.asdf/bin/asdf install
 
-# VS Code
-VSCODE_PATH=$(which /usr/bin/code)
-if [ "${VSCODE_PATH}" == "" ]; then
-  echo "Installing VS Code..."
-  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-  sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-  rm -f packages.microsoft.gpg
-  sudo apt update
-  sudo apt install code
+
+# Chrome
+CHROME_PATH=$(which /opt/google/chrome/chrome)
+if [ "${CHROME_PATH}" == "" ]; then
+  echo "Installing chrome..."
+  curl -s -H 'Cache-Control: no-cache' -o /tmp/google-chrome-stable_current_amd64.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  sudo dpkg -i /tmp/google-chrome-stable_current_amd64.deb
+fi
+
+# Docker
+DOCKER_PATH=$(which docker)
+if [ "${DOCKER_PATH}" == "" ]; then
+  echo "Installing docker..."
+  curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
+  sudo chmod +x /tmp/get-docker.sh
+  /tmp/get-docker.sh
 fi
 
 # Fortigate VPN
@@ -70,12 +69,13 @@ if [ "${KNS_PATH}" == "" ]; then
   sudo chmod +x ${LOCAL_BIN}/kubens
 fi
 
-# Slack
-SLACK_PATH=$(which slack)
-if [ "${SLACK_PATH}" == "" ]; then
-  echo "Installing Slack..."
-  sudo snap install slack
+# NPM
+NPM_PATH=$(which ${LOCAL_BIN}/npm)
+if [ "${NPM_PATH}" == "" ]; then
+  echo "Installing npm..."
+  sudo apt install npm
 fi
+
 
 # Postman
 POSTMAN_PATH=$(which /snap/bin/postman)
@@ -91,14 +91,25 @@ if [ "${PROSPECT_MAIL_PATH}" == "" ]; then
   sudo snap install prospect-mail
 fi
 
-# Docker
-DOCKER_PATH=$(which docker)
-if [ "${DOCKER_PATH}" == "" ]; then
-  echo "Installing docker..."
-  curl -fsSL https://get.docker.com -o /tmp/get-docker.sh
-  sudo chmod +x /tmp/get-docker.sh
-  /tmp/get-docker.sh
+# Slack
+SLACK_PATH=$(which slack)
+if [ "${SLACK_PATH}" == "" ]; then
+  echo "Installing Slack..."
+  sudo snap install slack
 fi
+
+# VS Code
+VSCODE_PATH=$(which /usr/bin/code)
+if [ "${VSCODE_PATH}" == "" ]; then
+  echo "Installing VS Code..."
+  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+  sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+  rm -f packages.microsoft.gpg
+  sudo apt update
+  sudo apt install code
+fi
+
 
 /usr/bin/dockerd-rootless-setuptool.sh install
 
