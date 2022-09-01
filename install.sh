@@ -22,6 +22,9 @@ fi
 if [ ! -d "${HOME}/.asdf" ]; then
   echo "Installing asdf..."
   git clone https://github.com/asdf-vm/asdf.git ${HOME}/.asdf
+  
+  . $HOME/.asdf/asdf.sh
+  . $HOME/.asdf/completions/asdf.bash
 fi
 
 # Get plugins
