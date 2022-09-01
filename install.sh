@@ -67,6 +67,13 @@ if [ "${KNS_PATH}" == "" ]; then
   sudo chmod +x ${LOCAL_BIN}/kubens
 fi
 
+# Slack
+SLACK_PATH=$(which slack)
+if [ "${SLACK_PATH}" == "" ]; then
+  echo "Installing Slack..."
+  snap install slack
+fi
+
 # Postman
 POSTMAN_PATH=$(which /snap/bin/postman)
 if [ "${POSTMAN_PATH}" == "" ]; then
