@@ -71,21 +71,21 @@ fi
 SLACK_PATH=$(which slack)
 if [ "${SLACK_PATH}" == "" ]; then
   echo "Installing Slack..."
-  snap install slack
+  sudo snap install slack
 fi
 
 # Postman
 POSTMAN_PATH=$(which /snap/bin/postman)
 if [ "${POSTMAN_PATH}" == "" ]; then
   echo "Installing Postman..."
-  snap install postman
+  sudo snap install postman
 fi
 
 # Prospect Mail
 PROSPECT_MAIL_PATH=$(which /snap/bin/prospect-mail)
 if [ "${PROSPECT_MAIL_PATH}" == "" ]; then
   echo "Installing Prospect Mail..."
-  snap install prospect-mail
+  sudo snap install prospect-mail
 fi
 
 # Common Scripts
