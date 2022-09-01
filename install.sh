@@ -100,7 +100,7 @@ if [ "${DOCKER_PATH}" == "" ]; then
   /tmp/get-docker.sh
 fi
 
-dockerd-rootless-setuptool.sh install
+/usr/bin/dockerd-rootless-setuptool.sh install
 
 # Common Scripts
 curl -s -L -H 'Cache-Control: no-cache' -o ${LOCAL_BIN}/git-clone.sh https://raw.githubusercontent.com/exzeo/linux-install/main/scripts/git-clone.sh
