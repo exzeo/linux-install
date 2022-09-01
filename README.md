@@ -13,6 +13,7 @@ wget -O - https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh 
 * Kops
 * Kubectl
 * NodeJS
+* NPM
 * Packer
 * Terraform
 * Vault
