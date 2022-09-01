@@ -1,7 +1,7 @@
 # Linux Laptop Installation
 
 ```
-curl -s -L https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh | bash
+wget -O - https://raw.githubusercontent.com/exzeo/linux-install/main/install.sh | bash
 ```
 
 ## Tools installed
