@@ -91,7 +91,7 @@ if [ "${PROSPECT_MAIL_PATH}" == "" ]; then
   sudo snap install prospect-mail
 fi
 
-sudo apt-get update --fix-missing
+# sudo apt-get update --fix-missing
 
 # Docker
 DOCKER_PATH=$(which docker)
