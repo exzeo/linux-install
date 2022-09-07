@@ -47,12 +47,12 @@ if [ "${VSCODE_PATH}" == "" ]; then
 fi
 
 # Fortigate VPN
-VPN_PATH=$(which /opt/forticlient/gui/FortiClient-linux-x64/FortiClient)
-if [ "${VPN_PATH}" == "" ]; then
-  echo "Installing VPN..."
-  curl -s -L -H 'Cache-Control: no-cache' -o /tmp/forticlient.deb https://links.fortinet.com/forticlient/deb/vpnagent
-  sudo dpkg -i /tmp/forticlient.deb
-fi
+# VPN_PATH=$(which /opt/forticlient/gui/FortiClient-linux-x64/FortiClient)
+# if [ "${VPN_PATH}" == "" ]; then
+#   echo "Installing VPN..."
+#   curl -s -L -H 'Cache-Control: no-cache' -o /tmp/forticlient.deb https://links.fortinet.com/forticlient/deb/vpnagent
+#   sudo dpkg -i /tmp/forticlient.deb
+# fi
 
 # Kubectx
 KCTX_PATH=$(which ${LOCAL_BIN}/kubectx)
