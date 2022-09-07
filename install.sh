@@ -8,7 +8,7 @@ fi
 
 # Dependencies
 echo "Installing dependencies.."
-sudo apt-get install -y git curl wget gpg apt-transport-https uidmap unzip 
+sudo apt-get install -y git curl wget gpg apt-transport-https uidmap unzip snapd
 
 # Chrome
 CHROME_PATH=$(which /opt/google/chrome/chrome)
@@ -90,6 +90,8 @@ if [ "${PROSPECT_MAIL_PATH}" == "" ]; then
   echo "Installing Prospect Mail..."
   sudo snap install prospect-mail
 fi
+
+sudo apt-get update --fix-missing
 
 # Docker
 DOCKER_PATH=$(which docker)
