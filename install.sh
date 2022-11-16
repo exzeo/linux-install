@@ -54,6 +54,15 @@ fi
 #   sudo dpkg -i /tmp/forticlient.deb
 # fi
 
+# Fortigate Client Ubuntu 18.04/20.04
+UBUNTU_VERSION=$(lsb_release -sc)
+if [[ "$UBUNTU_VERSION" == "focal" || "bionic" ]]; then
+  echo "Installing Forticlient..."
+  wget https://filestore.fortinet.com/forticlient/downloads/FortiClientFullVPNInstaller_6.4.0.0851.deb
+  sudo dpkg -i FortiClientFullVPNInstaller_6.4.0.0851.deb
+  sudo apt install ./FortiClientFullVPNInstaller_6.4.0.0851.deb
+fi
+
 # Kubectx
 KCTX_PATH=$(which ${LOCAL_BIN}/kubectx)
 if [ "${KCTX_PATH}" == "" ]; then
